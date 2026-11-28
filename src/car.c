@@ -153,7 +153,7 @@ const car_spec CAR_SPEC_FD3S = { 5u, 5, { 690.0f, 298.3f, 1285.0f, 684.9f, 298.3
 int car_tune_hp(int stock_hp, int power) {
   /* the table at 0x9736a60 (gauge_pow_to_Horse's too) */
   static const short HP[CAR_TUNE_MAX + 1] = { 0,   360, 400, 420, 450, 470, 500, 530, 550, 580, 600, 620, 640,
-                                              660, 680, 700, 720, 740, 760, 780, 800, 810, 815, 820, 825 };
+                                              660, 680, 700, 720, 740, 760, 780, 800, 810, 815, 820, 825, 850, 875, 910, 925, 950, 975, 1000 };
   if (power <= 0) return stock_hp;
   return HP[power > CAR_TUNE_MAX ? CAR_TUNE_MAX : power];
 }
@@ -1705,7 +1705,7 @@ void car_story_end(int first) {
  * the tyres, the gear for the speed, the hit and the camera effects, its speed the warp's
  * 120 km/h at most here, the car's own forward speed below that). */
 #define START_OFS RCA(9802920)     /* yt::CSeq::StartOfsAry: [1] the start's lateral offset */
-#define WARP_SPEED 33333.333f    /* SetFirstPos's speed for the warp (mm/s: 120 km/h) */
+#define WARP_SPEED 33333.333f    /* SetFirstPos's speed for the warp (mm/s: 300 km/h) */
 static int hits; /* car_hits */
 #define SPARK_CLEAR 30 /* frames without the scrape before its next start is a hit */
 void car_hits(int on) { hits = on != 0; }
